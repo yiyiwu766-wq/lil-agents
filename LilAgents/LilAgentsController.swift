@@ -30,6 +30,9 @@ class LilAgentsController {
         char1.flipXOffset = 0
         char2.flipXOffset = -9
 
+        char1.provider = .openclawGPT
+        char2.provider = .claude
+
         char1.positionProgress = 0.3
         char2.positionProgress = 0.7
 

@@ -23,6 +23,7 @@ class WalkerCharacter {
     var yOffset: CGFloat = 0
     var flipXOffset: CGFloat = 0
     var characterColor: NSColor = .gray
+    var provider: AgentProvider = .claude
 
     // Walk state
     var playCount = 0
@@ -258,9 +259,9 @@ class WalkerCharacter {
         hideBubble()
 
         if session == nil {
-            let newSession = AgentProvider.current.createSession()
+            let newSession = provider.createSession()
             session = newSession
-            wireSession(newSession)
+            wireSession(newSession, providerName: provider.displayName)
             newSession.start()
         }
 

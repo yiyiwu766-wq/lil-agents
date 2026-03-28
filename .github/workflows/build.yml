@@ -1,0 +1,40 @@
+name: Build lil agents
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_16.2.app
+
+      - name: Resolve packages
+        run: xcodebuild -resolvePackageDependencies -project lil-agents.xcodeproj -scheme LilAgents
+
+      - name: Build
+        run: |
+          xcodebuild build \
+            -project lil-agents.xcodeproj \
+            -scheme LilAgents \
+            -configuration Release \
+            -derivedDataPath build \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Package app
+        run: |
+          cd build/Build/Products/Release
+          zip -r "$GITHUB_WORKSPACE/lil-agents.zip" "lil agents.app"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lil-agents-app
+          path: lil-agents.zip
