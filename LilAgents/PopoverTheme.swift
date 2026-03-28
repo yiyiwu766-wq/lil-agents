@@ -65,7 +65,7 @@ struct PopoverTheme {
 
     static let playful = PopoverTheme(
         name: "Peach",
-        popoverBg: NSColor(red: 1.0, green: 0.97, blue: 0.92, alpha: 0.97),
+        popoverBg: NSColor(red: 1.0, green: 0.97, blue: 0.92, alpha: 0.85),
         popoverBorder: NSColor(red: 0.95, green: 0.55, blue: 0.65, alpha: 0.8),
         popoverBorderWidth: 2.5,
         popoverCornerRadius: 24,
