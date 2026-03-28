@@ -1,8 +1,7 @@
 import Foundation
 
-/// Session that launches Claude CLI but routes through OpenClaw to use GPT.
-/// It reuses the same stream-json protocol as ClaudeSession but starts
-/// the process with a system prompt that identifies it as the GPT agent.
+/// Session that launches the OpenClaw bridge script to talk to the main agent (GPT 5.4).
+/// The bridge script accepts stream-json on stdin and forwards to OpenClaw main agent.
 class OpenClawGPTSession: AgentSession {
     private var process: Process?
     private var inputPipe: Pipe?
@@ -13,7 +12,6 @@ class OpenClawGPTSession: AgentSession {
     private var pendingMessages: [String] = []
     private(set) var isRunning = false
     private(set) var isBusy = false
-    private static var binaryPath: String?
 
     var onText: ((String) -> Void)?
     var onError: ((String) -> Void)?
@@ -28,40 +26,22 @@ class OpenClawGPTSession: AgentSession {
     // MARK: - Process Lifecycle
 
     func start() {
-        if let cached = Self.binaryPath {
-            launchProcess(binaryPath: cached)
-            return
-        }
-
         let home = FileManager.default.homeDirectoryForCurrentUser.path
-        ShellEnvironment.findBinary(name: "claude", fallbackPaths: [
-            "\(home)/.local/bin/claude",
-            "\(home)/.claude/local/bin/claude",
-            "/usr/local/bin/claude",
-            "/opt/homebrew/bin/claude"
-        ]) { [weak self] path in
-            guard let self = self, let binaryPath = path else {
-                let msg = "Claude CLI not found.\n\n\(AgentProvider.openclawGPT.installInstructions)"
-                self?.onError?(msg)
-                self?.history.append(AgentMessage(role: .error, text: msg))
-                return
-            }
-            Self.binaryPath = binaryPath
-            self.launchProcess(binaryPath: binaryPath)
+        let bridgePath = "\(home)/.openclaw/bin/openclaw-bridge.sh"
+
+        if FileManager.default.fileExists(atPath: bridgePath) {
+            launchProcess(binaryPath: bridgePath)
+        } else {
+            let msg = "OpenClaw bridge not found at \(bridgePath).\n\n\(AgentProvider.openclawGPT.installInstructions)"
+            onError?(msg)
+            history.append(AgentMessage(role: .error, text: msg))
         }
     }
 
     private func launchProcess(binaryPath: String) {
         let proc = Process()
-        proc.executableURL = URL(fileURLWithPath: binaryPath)
-        proc.arguments = [
-            "-p",
-            "--output-format", "stream-json",
-            "--input-format", "stream-json",
-            "--verbose",
-            "--dangerously-skip-permissions",
-            "--model", "opus"
-        ]
+        proc.executableURL = URL(fileURLWithPath: "/bin/bash")
+        proc.arguments = [binaryPath]
         proc.currentDirectoryURL = FileManager.default.homeDirectoryForCurrentUser
         proc.environment = ShellEnvironment.processEnvironment()
 
