@@ -371,7 +371,7 @@ class WalkerCharacter {
         container.layer?.borderColor = t.popoverBorder.cgColor
         container.autoresizingMask = [.width, .height]
 
-        let titleBar = NSView(frame: NSRect(x: 0, y: popoverHeight - 28, width: popoverWidth, height: 28))
+        let titleBar = NSView(frame: NSRect(x: 0, y: popoverHeight - 36, width: popoverWidth, height: 36))
         titleBar.wantsLayer = true
         titleBar.layer?.backgroundColor = t.titleBarBg.cgColor
         container.addSubview(titleBar)
@@ -379,15 +379,15 @@ class WalkerCharacter {
         let titleLabel = NSTextField(labelWithString: t.titleString)
         titleLabel.font = t.titleFont
         titleLabel.textColor = t.titleText
-        titleLabel.frame = NSRect(x: 12, y: 6, width: 200, height: 16)
+        titleLabel.frame = NSRect(x: 14, y: 8, width: 200, height: 20)
         titleBar.addSubview(titleLabel)
 
-        let sep = NSView(frame: NSRect(x: 0, y: popoverHeight - 29, width: popoverWidth, height: 1))
+        let sep = NSView(frame: NSRect(x: 0, y: popoverHeight - 37, width: popoverWidth, height: 1))
         sep.wantsLayer = true
         sep.layer?.backgroundColor = t.separatorColor.cgColor
         container.addSubview(sep)
 
-        let terminal = TerminalView(frame: NSRect(x: 0, y: 0, width: popoverWidth, height: popoverHeight - 29))
+        let terminal = TerminalView(frame: NSRect(x: 0, y: 0, width: popoverWidth, height: popoverHeight - 37))
         terminal.characterColor = characterColor
         terminal.themeOverride = themeOverride
         terminal.autoresizingMask = [.width, .height]

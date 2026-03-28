@@ -79,8 +79,8 @@ class TerminalView: NSView {
 
     private func setupViews() {
         let t = theme
-        let inputHeight: CGFloat = 38
-        let padding: CGFloat = 10
+        let inputHeight: CGFloat = 44
+        let padding: CGFloat = 16
 
         scrollView.frame = NSRect(
             x: padding, y: inputHeight + padding + 6,
@@ -102,9 +102,9 @@ class TerminalView: NSView {
         textView.textColor = t.textPrimary
         textView.font = t.font
         textView.isRichText = true
-        textView.textContainerInset = NSSize(width: 2, height: 4)
+        textView.textContainerInset = NSSize(width: 8, height: 10)
         let defaultPara = NSMutableParagraphStyle()
-        defaultPara.paragraphSpacing = 8
+        defaultPara.paragraphSpacing = 12
         textView.defaultParagraphStyle = defaultPara
         textView.textContainer?.widthTracksTextView = true
         textView.isVerticallyResizable = true
@@ -132,8 +132,8 @@ class TerminalView: NSView {
         paddedCell.textColor = t.textPrimary
         paddedCell.drawsBackground = false
         paddedCell.isBezeled = false
-        paddedCell.fieldBackgroundColor = nil
-        paddedCell.fieldCornerRadius = 0
+        paddedCell.fieldBackgroundColor = t.inputBg
+        paddedCell.fieldCornerRadius = t.inputCornerRadius
         paddedCell.placeholderAttributedString = NSAttributedString(
             string: AgentProvider.current.inputPlaceholder,
             attributes: [.font: t.font, .foregroundColor: t.textDim]
