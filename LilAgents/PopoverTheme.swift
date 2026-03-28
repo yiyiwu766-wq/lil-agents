@@ -45,8 +45,8 @@ struct PopoverTheme {
         titleFont: NSFont(name: "SFMono-Bold", size: 15) ?? .monospacedSystemFont(ofSize: 15, weight: .bold),
         titleFormat: .uppercase,
         separatorColor: NSColor(red: 1.0, green: 0.4, blue: 0.0, alpha: 0.3),
-        font: NSFont(name: "SFMono-Regular", size: 20) ?? .monospacedSystemFont(ofSize: 20, weight: .regular),
-        fontBold: NSFont(name: "SFMono-Medium", size: 20) ?? .monospacedSystemFont(ofSize: 20, weight: .medium),
+        font: NSFont(name: "SFMono-Regular", size: 25) ?? .monospacedSystemFont(ofSize: 25, weight: .regular),
+        fontBold: NSFont(name: "SFMono-Medium", size: 25) ?? .monospacedSystemFont(ofSize: 25, weight: .medium),
         textPrimary: NSColor.white,
         textDim: NSColor(white: 0.6, alpha: 1.0),
         accentColor: NSColor(red: 1.0, green: 0.4, blue: 0.0, alpha: 1.0),
@@ -59,7 +59,7 @@ struct PopoverTheme {
         bubbleText: NSColor(white: 0.7, alpha: 1.0),
         bubbleCompletionBorder: NSColor(red: 0.3, green: 0.8, blue: 0.3, alpha: 0.7),
         bubbleCompletionText: NSColor(red: 0.3, green: 0.85, blue: 0.3, alpha: 1.0),
-        bubbleFont: .monospacedSystemFont(ofSize: 19, weight: .medium),
+        bubbleFont: .monospacedSystemFont(ofSize: 24, weight: .medium),
         bubbleCornerRadius: 12
     )
 
@@ -74,8 +74,8 @@ struct PopoverTheme {
         titleFont: .systemFont(ofSize: 13, weight: .heavy),
         titleFormat: .lowercaseTilde,
         separatorColor: NSColor(red: 0.95, green: 0.55, blue: 0.65, alpha: 0.25),
-        font: .systemFont(ofSize: 20, weight: .regular),
-        fontBold: .systemFont(ofSize: 20, weight: .semibold),
+        font: .systemFont(ofSize: 25, weight: .regular),
+        fontBold: .systemFont(ofSize: 25, weight: .semibold),
         textPrimary: NSColor(red: 0.2, green: 0.18, blue: 0.22, alpha: 1.0),
         textDim: NSColor(red: 0.5, green: 0.47, blue: 0.52, alpha: 1.0),
         accentColor: NSColor(red: 0.85, green: 0.35, blue: 0.45, alpha: 1.0),
@@ -88,7 +88,7 @@ struct PopoverTheme {
         bubbleText: NSColor(red: 0.55, green: 0.5, blue: 0.52, alpha: 1.0),
         bubbleCompletionBorder: NSColor(red: 0.3, green: 0.75, blue: 0.5, alpha: 0.7),
         bubbleCompletionText: NSColor(red: 0.2, green: 0.6, blue: 0.4, alpha: 1.0),
-        bubbleFont: .systemFont(ofSize: 19, weight: .semibold),
+        bubbleFont: .systemFont(ofSize: 24, weight: .semibold),
         bubbleCornerRadius: 14
     )
 
@@ -103,8 +103,8 @@ struct PopoverTheme {
         titleFont: .systemFont(ofSize: 13, weight: .semibold),
         titleFormat: .lowercaseTilde,
         separatorColor: NSColor(red: 0.8, green: 0.82, blue: 0.85, alpha: 0.4),
-        font: .systemFont(ofSize: 20, weight: .regular),
-        fontBold: .systemFont(ofSize: 20, weight: .semibold),
+        font: .systemFont(ofSize: 25, weight: .regular),
+        fontBold: .systemFont(ofSize: 25, weight: .semibold),
         textPrimary: NSColor(red: 0.15, green: 0.15, blue: 0.2, alpha: 1.0),
         textDim: NSColor(red: 0.5, green: 0.5, blue: 0.55, alpha: 1.0),
         accentColor: NSColor(red: 0.0, green: 0.47, blue: 0.84, alpha: 1.0),
@@ -117,7 +117,7 @@ struct PopoverTheme {
         bubbleText: NSColor(red: 0.45, green: 0.47, blue: 0.52, alpha: 1.0),
         bubbleCompletionBorder: NSColor(red: 0.2, green: 0.7, blue: 0.3, alpha: 0.6),
         bubbleCompletionText: NSColor(red: 0.15, green: 0.55, blue: 0.2, alpha: 1.0),
-        bubbleFont: .systemFont(ofSize: 19, weight: .semibold),
+        bubbleFont: .systemFont(ofSize: 24, weight: .semibold),
         bubbleCornerRadius: 12
     )
 
@@ -132,8 +132,8 @@ struct PopoverTheme {
         titleFont: NSFont(name: "Chicago", size: 11) ?? .systemFont(ofSize: 11, weight: .bold),
         titleFormat: .capitalized,
         separatorColor: NSColor(red: 0.55, green: 0.58, blue: 0.50, alpha: 0.5),
-        font: NSFont(name: "Geneva", size: 20) ?? .monospacedSystemFont(ofSize: 20, weight: .regular),
-        fontBold: NSFont(name: "Geneva", size: 20) ?? .monospacedSystemFont(ofSize: 20, weight: .bold),
+        font: NSFont(name: "Geneva", size: 25) ?? .monospacedSystemFont(ofSize: 25, weight: .regular),
+        fontBold: NSFont(name: "Geneva", size: 25) ?? .monospacedSystemFont(ofSize: 25, weight: .bold),
         textPrimary: NSColor(red: 0.1, green: 0.12, blue: 0.08, alpha: 1.0),
         textDim: NSColor(red: 0.35, green: 0.38, blue: 0.30, alpha: 1.0),
         accentColor: NSColor(red: 0.2, green: 0.22, blue: 0.15, alpha: 1.0),
@@ -146,7 +146,7 @@ struct PopoverTheme {
         bubbleText: NSColor(red: 0.4, green: 0.42, blue: 0.38, alpha: 1.0),
         bubbleCompletionBorder: NSColor(red: 0.2, green: 0.5, blue: 0.2, alpha: 0.7),
         bubbleCompletionText: NSColor(red: 0.15, green: 0.4, blue: 0.15, alpha: 1.0),
-        bubbleFont: NSFont(name: "Geneva", size: 19) ?? .monospacedSystemFont(ofSize: 19, weight: .medium),
+        bubbleFont: NSFont(name: "Geneva", size: 19) ?? .monospacedSystemFont(ofSize: 24, weight: .medium),
         bubbleCornerRadius: 8
     )
 
@@ -167,7 +167,7 @@ struct PopoverTheme {
         }
     }
     static var customFontName: String? = ".AppleSystemUIFontRounded"
-    static var customFontSize: CGFloat = 20
+    static var customFontSize: CGFloat = 25
 
     // MARK: - Theme Modifiers
 
