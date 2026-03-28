@@ -79,7 +79,7 @@ class TerminalView: NSView {
 
     private func setupViews() {
         let t = theme
-        let inputHeight: CGFloat = 30
+        let inputHeight: CGFloat = 38
         let padding: CGFloat = 10
 
         scrollView.frame = NSRect(
