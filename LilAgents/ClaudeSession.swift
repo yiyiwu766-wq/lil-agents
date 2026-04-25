@@ -53,7 +53,7 @@ class ClaudeSession: AgentSession {
         proc.executableURL = URL(fileURLWithPath: binaryPath)
         proc.arguments = [
             "-p",
-            "--model", "sonnet",
+            "--model", "claude-opus-4-7",
             "--output-format", "stream-json",
             "--input-format", "stream-json",
             "--verbose",
