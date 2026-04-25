@@ -345,8 +345,8 @@ class WalkerCharacter {
 
     func createPopoverWindow() {
         let t = resolvedTheme
-        let popoverWidth: CGFloat = 1200
-        let popoverHeight: CGFloat = 880
+        let popoverWidth: CGFloat = 1000
+        let popoverHeight: CGFloat = 740
 
         let win = KeyableWindow(
             contentRect: CGRect(x: 0, y: 0, width: popoverWidth, height: popoverHeight),
